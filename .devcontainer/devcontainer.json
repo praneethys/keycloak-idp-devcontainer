@@ -1,0 +1,42 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/postgres
+{
+	"name": "Keycloak IDP",
+	"dockerComposeFile": "../docker-compose.yml",
+	"service": "keycloak-dev",
+	"workspaceFolder": "/work",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or the host.
+	"forwardPorts": [
+		5432,
+		8080
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "kc.sh start-dev",
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux#": "/bin/bash"
+				// "python.pythonPath": "/usr/local/bin/python",
+				// "python.languageServer": "Pylance"
+			},
+			"extensions": [
+				"editorconfig.editorconfig",
+				"ms-azuretools.vscode-docker",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"visualstudioexptteam.vscodeintellicode",
+				"eamodio.gitlens",
+				"redhat.vscode-yaml",
+				"vivaxy.vscode-conventional-commits",
+				"github.vscode-github-actions"
+			]
+		}
+	},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "vscode",
+	"shutdownAction": "stopCompose"
+}
